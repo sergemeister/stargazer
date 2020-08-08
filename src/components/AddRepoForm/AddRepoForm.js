@@ -1,27 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, InputGroup, FormControl, Button } from 'react-bootstrap';
 import './AddRepoForm.css'
 
 const AddRepoForm = () => {
+  const [repoName, setRepoName] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    console.log(repoName)
+  }
+
+  const handleChange = (e) => {
+    setRepoName(e.target.value)  
   }
 
   return(
-    <Form className="add-repo-form">
+    <Form
+      className="add-repo-form"
+      onSubmit={handleSubmit}>
       <InputGroup className="mb-3">
         <FormControl
+          onChange={handleChange}
           placeholder="Enter repository name, eg. facebook/react"
-          pattern="([^\/\s]+\/[a-zA-z0-9]*)"
-          title="Should contain {repo}/{owner}, eg. facebook/react"
+          title="Should be formatted as {owner}/{repo}, eg. facebook/react"
+          value={repoName}
+          pattern="^([\/\s]+\/)([a-zA-z0-9]*)$"
           required
         />
         <InputGroup.Append>
           <Button
             type="submit"
-            variant="info"
-          >
+            variant="info">
             Add
           </Button>
         </InputGroup.Append>
