@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { getRepository } from '../../actions'
 import { Form, InputGroup, FormControl, Button } from 'react-bootstrap';
 import './AddRepoForm.css'
 
 const AddRepoForm = () => {
   const [repoName, setRepoName] = useState('')
+  const error = useSelector(state => state.repositories.error)
   const dispatch = useDispatch()
 
   const handleSubmit = (e) => {
@@ -38,6 +39,7 @@ const AddRepoForm = () => {
           </Button>
         </InputGroup.Append>
       </InputGroup> 
+      {error}
     </Form>
   )
 }

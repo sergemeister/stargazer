@@ -5,12 +5,17 @@ export default (state = {}, action) => {
     case types.GET_REPOSITORY_SUCCESSFUL:
       return {
         ...state,
-        [action.payload.id]: action.payload
+        data: {
+          ...state.data,
+          [action.payload.id]: action.payload,
+        },
+        error: null
       }
 
     case types.GET_REPOSITORY_FAILURE:
       return {
-        ...state
+        ...state,
+        error: action.payload 
       }
 
     default:
