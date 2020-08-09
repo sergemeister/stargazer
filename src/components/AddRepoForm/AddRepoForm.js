@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux'
+import { getRepository } from '../../actions'
 import { Form, InputGroup, FormControl, Button } from 'react-bootstrap';
 import './AddRepoForm.css'
 
 const AddRepoForm = () => {
   const [repoName, setRepoName] = useState('')
+  const dispatch = useDispatch()
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(repoName)
+    dispatch(getRepository(repoName))
   }
 
   const handleChange = (e) => {
@@ -24,7 +27,7 @@ const AddRepoForm = () => {
           placeholder="Enter repository name, eg. facebook/react"
           title="Should be formatted as {owner}/{repo}, eg. facebook/react"
           value={repoName}
-          pattern="^([\/\s]+\/)([a-zA-z0-9]*)$"
+          pattern="^([a-zA-z0-9]+\/)([a-zA-z0-9]+)$"
           required
         />
         <InputGroup.Append>

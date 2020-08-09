@@ -1,1 +1,5 @@
-export default []
+import reposDtataHandingLogic from './reposDataHandlingLogic'
+
+export default [
+  ...reposDtataHandingLogic
+]
