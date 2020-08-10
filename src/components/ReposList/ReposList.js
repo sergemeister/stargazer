@@ -1,11 +1,11 @@
 import React from 'react'
-import { useSelector, shallowEqual } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Table } from 'react-bootstrap'
 import RepoItem from '../RepoItem/'
 import { orderBy } from 'lodash'
 
 const ReposList = () => {
-  const repositories  = useSelector(state => state.repositories.data, shallowEqual)
+  const repositories  = useSelector(state => state.repositories.data)
   
   return(
     <Table>
@@ -20,6 +20,7 @@ const ReposList = () => {
         {orderBy(Object.values(repositories), ['stargazers_count'], ['desc']).map(repo =>
           <RepoItem
             key={repo.id}
+            id={repo.id}
             name={repo.full_name}
             starsCount={repo.stargazers_count}
           />

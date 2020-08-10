@@ -16,7 +16,7 @@ const AddRepoForm = () => {
   }
 
   const handleChange = (e) => {
-    setRepoName(e.target.value)  
+    setRepoName(e.target.value)
   }
 
   return(

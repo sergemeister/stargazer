@@ -1,4 +1,5 @@
 import * as types from '../../actions/types'
+import { omit } from 'lodash'
 
 export default (state = {}, action) => {
   switch (action.type) {
@@ -16,6 +17,12 @@ export default (state = {}, action) => {
       return {
         ...state,
         error: action.payload 
+      }
+
+    case types.REMOVE_REPOSITORY:
+      return {
+        ...state,
+        data: omit(state.data, action.payload)
       }
 
     default:
