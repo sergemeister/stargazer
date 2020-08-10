@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { getRepository } from '../../actions'
 import { Form, InputGroup, FormControl, Button } from 'react-bootstrap';
-import './AddRepoForm.css'
+import './AddRepoForm.scss'
 
 const AddRepoForm = () => {
   const [repoName, setRepoName] = useState('')

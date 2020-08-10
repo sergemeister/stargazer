@@ -1,0 +1,19 @@
+.details-page {
+  margin: 10rem auto 0 auto;
+  max-width: 30%;
+
+  .details-head {
+    font-size: 20px;
+    margin-bottom: 4rem;
+  }
+
+  .stats-col {
+    width: 50%;
+    display: inline-grid;
+
+    .stats-head {
+      font-size: 18px;
+      margin-bottom: .5rem;
+    }
+  }
+}
