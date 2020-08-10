@@ -30,4 +30,4 @@ const ReposList = () => {
   )
 }
 
-export default ReposList;
+export default ReposList

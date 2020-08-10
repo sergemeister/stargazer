@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import AddRepoForm from '../AddRepoForm'
 import ReposList from '../ReposList'
 import './HomePage.css'
@@ -12,4 +12,4 @@ const HomePage = () => {
   )
 }
 
-export default HomePage;
+export default HomePage
