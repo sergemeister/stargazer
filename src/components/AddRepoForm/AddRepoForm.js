@@ -12,6 +12,7 @@ const AddRepoForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     dispatch(getRepository(repoName))
+    setRepoName('')
   }
 
   const handleChange = (e) => {
@@ -28,7 +29,7 @@ const AddRepoForm = () => {
           placeholder="Enter repository name, eg. facebook/react"
           title="Should be formatted as {owner}/{repo}, eg. facebook/react"
           value={repoName}
-          pattern="^([a-zA-z0-9]+\/)([a-zA-z0-9]+)$"
+          pattern="^([a-zA-z0-9_.-]+\/)([a-zA-z0-9_.-]+)$"
           required
         />
         <InputGroup.Append>

@@ -5,7 +5,12 @@ import Reducer from './reducers'
 import rootLogic from './logic/'
 import axios from 'axios'
 
-const initialState = {}
+const initialState = {
+  repositories: {
+    data: {},
+    error: null
+  }
+}
 
 const logicDeps = {
     httpClient: axios

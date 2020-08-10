@@ -1,6 +1,5 @@
 
 import * as types from '../../actions/types';
-import { setRepositoryFetchError } from '../../actions'
 import { createLogic } from 'redux-logic';
 import { pick } from 'lodash'
 
@@ -36,9 +35,10 @@ const reposDataHandlingLogic = createLogic({
   process({ httpClient, action }, dispatch, done) {
     return httpClient.get(`https://api.github.com/repos/${action.payload.owner}/${action.payload.repo}`)
       .then(resp => resp.data)
-      .then(data => ( 
-        pick(data, ['id', 'full_name', 'stargazers_count', 'subscribers_count', 'forks_count', 'clone_url', 'languages_url'])
-      ))
+      .then(data => {
+        done()
+        return pick(data, ['id', 'full_name', 'stargazers_count', 'subscribers_count', 'forks_count', 'clone_url', 'languages_url'])
+      })
       .catch(e => Promise.reject('Repository not found'))
   }
 })
