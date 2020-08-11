@@ -25,6 +25,18 @@ export default (state = {}, action) => {
         data: omit(state.data, action.payload)
       }
 
+    case types.GET_REPOSITORY_LANGUAGES_SUCCESSFUL:
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          [action.payload.id]: {
+            ...state.data[action.payload.id],
+            languages: action.payload.languages
+          }
+        }
+      }
+
     default:
       return state
   }
