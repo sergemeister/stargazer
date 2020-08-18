@@ -13,7 +13,7 @@ const DetailsPage = () => {
 
   useEffect(() => {
     dispatch(getRepositoryLanguages(id))
-  }, [])
+  }, [id, dispatch])
 
   return(
     <div className="details-page">

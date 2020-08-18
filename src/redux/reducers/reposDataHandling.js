@@ -1,7 +1,12 @@
 import * as types from '../../actions/types'
 import { omit } from 'lodash'
 
-export default (state = {}, action) => {
+const initialState = {
+  data: {},
+  error: null
+}
+
+export default (state = initialState, action) => {
   switch (action.type) {
     case types.GET_REPOSITORY_SUCCESSFUL:
       return {
