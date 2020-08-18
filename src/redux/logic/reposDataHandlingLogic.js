@@ -89,7 +89,7 @@ const calculateLanguagesPercents = (languages) => {
   Object.keys(languages).forEach(language => {
     const calculatedPercents = (languages[language] / totalBytesOfCode * 100).toFixed(1)
 
-    if (calculatedPercents > 0) calculatedData[language] = calculatedPercents
+    if (calculatedPercents > 0) calculatedData[language] = calculatedPercents + '%'
   })
 
   return calculatedData

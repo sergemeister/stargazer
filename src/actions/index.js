@@ -25,7 +25,10 @@ export const getRepositoryLanguages = (id) => ({
   payload: id
 })
 
-export const getRepositoryLanguagesSuccessful = (id) => ({
+export const getRepositoryLanguagesSuccessful = ({id, languages}) => ({
   type: types.GET_REPOSITORY_LANGUAGES_SUCCESSFUL,
-  payload: id
+  payload: {
+    id: id,
+    languages: languages
+  }
 })
