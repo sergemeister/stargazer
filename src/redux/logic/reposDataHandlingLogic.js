@@ -7,7 +7,7 @@ import {
 } from '../../actions'
 
 
-const fetchRepositoryLogic = createLogic({
+export const fetchRepositoryLogic = createLogic({
   type: types.GET_REPOSITORY,
   latest: true,
 
@@ -43,7 +43,7 @@ const fetchRepositoryLogic = createLogic({
   }
 })
 
-const fetchLanguagesLogic = createLogic({
+export const fetchLanguagesLogic = createLogic({
   type: types.GET_REPOSITORY_LANGUAGES,
   latest: true,
 
