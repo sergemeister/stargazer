@@ -11,7 +11,7 @@ export const fetchRepositoryLogic = createLogic({
   type: types.GET_REPOSITORY,
   latest: true,
 
-  transform({ getState, action }, next, reject) {
+  transform({ action }, next, reject) {
     const splittedFullName = action.payload.split('/')
     if (splittedFullName.length === 2) {
       next({
