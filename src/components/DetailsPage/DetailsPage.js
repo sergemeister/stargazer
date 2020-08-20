@@ -9,7 +9,7 @@ const DetailsPage = () => {
   const { id } = useParams()
   const history = useHistory()
   const dispatch = useDispatch()
-  const repository  = useSelector(state => state.repositories.data[id])
+  const repository = useSelector(state => state.repositories.data[id])
 
   useEffect(() => {
     dispatch(getRepositoryLanguages(id))

@@ -8,7 +8,7 @@ import axios from 'axios'
 const initialState = {}
 
 const logicDeps = {
-    httpClient: axios
+  httpClient: axios
 }
 
 const logicMiddleware = createLogicMiddleware(rootLogic, logicDeps);

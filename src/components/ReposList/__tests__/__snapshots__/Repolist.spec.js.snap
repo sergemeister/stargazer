@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RepoList should render correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [MockFunction],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <ReposList>
+    <ForwardRef>
+      <table
+        className="table"
+      >
+        <thead>
+          <tr>
+            <th>
+              Repository name
+            </th>
+            <th>
+              Stars
+            </th>
+            <th />
+          </tr>
+        </thead>
+        <tbody>
+          <RepoItem
+            id={11730342}
+            key="11730342"
+            name="vuejs/vue"
+            starsCount={170383}
+          >
+            <tr
+              className="repo-item"
+              onClick={[Function]}
+            >
+              <td>
+                vuejs/vue
+              </td>
+              <td>
+                170383
+              </td>
+              <td>
+                <button
+                  className="close"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    ×
+                  </span>
+                </button>
+              </td>
+            </tr>
+          </RepoItem>
+          <RepoItem
+            id={10270250}
+            key="10270250"
+            name="facebook/react"
+            starsCount={154386}
+          >
+            <tr
+              className="repo-item"
+              onClick={[Function]}
+            >
+              <td>
+                facebook/react
+              </td>
+              <td>
+                154386
+              </td>
+              <td>
+                <button
+                  className="close"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    ×
+                  </span>
+                </button>
+              </td>
+            </tr>
+          </RepoItem>
+        </tbody>
+      </table>
+    </ForwardRef>
+  </ReposList>
+</Provider>
+`;

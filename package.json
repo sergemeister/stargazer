@@ -121,6 +121,7 @@
     "setupFilesAfterEnv": [
       "<rootDir>/src/setupTests.js"
     ],
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
     "testEnvironment": "jest-environment-jsdom-fourteen",
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
@@ -143,6 +144,7 @@
   "devDependencies": {
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.3",
-    "react-test-renderer": "^16.13.1"
+    "enzyme-to-json": "^3.5.0",
+    "redux-mock-store": "^1.5.4"
   }
 }

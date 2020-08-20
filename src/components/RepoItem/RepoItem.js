@@ -8,7 +8,8 @@ const RepoItem = ({id, name, starsCount}) => {
   let history = useHistory()
   const dispatch = useDispatch()
 
-  const handleRemove = () => {
+  const handleRemove = (e) => {
+    e.preventDefault()
     dispatch(removeRepository(id))
   }
  

@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddRepoForm should render correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [MockFunction],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <AddRepoForm>
+    <Form
+      className="add-repo-form"
+      inline={false}
+      onSubmit={[Function]}
+    >
+      <form
+        className="add-repo-form"
+        onSubmit={[Function]}
+      >
+        <InputGroup
+          className="mb-3"
+        >
+          <div
+            className="mb-3 input-group"
+          >
+            <FormControl
+              onChange={[Function]}
+              pattern="^([a-zA-z0-9_.-]+\\\\/)([a-zA-z0-9_.-]+)$"
+              placeholder="Enter repository name, eg. facebook/react"
+              required={true}
+              title="Should be formatted as {owner}/{repo}, eg. facebook/react"
+              value=""
+            >
+              <input
+                className="form-control"
+                onChange={[Function]}
+                pattern="^([a-zA-z0-9_.-]+\\\\/)([a-zA-z0-9_.-]+)$"
+                placeholder="Enter repository name, eg. facebook/react"
+                required={true}
+                title="Should be formatted as {owner}/{repo}, eg. facebook/react"
+                value=""
+              />
+            </FormControl>
+            <InputGroupAppend>
+              <div
+                className="input-group-append"
+              >
+                <Button
+                  active={false}
+                  disabled={false}
+                  type="submit"
+                  variant="info"
+                >
+                  <button
+                    className="btn btn-info"
+                    disabled={false}
+                    type="submit"
+                  >
+                    Add
+                  </button>
+                </Button>
+              </div>
+            </InputGroupAppend>
+          </div>
+        </InputGroup>
+        Repository not found
+      </form>
+    </Form>
+  </AddRepoForm>
+</Provider>
+`;
