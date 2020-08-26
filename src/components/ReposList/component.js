@@ -1,11 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Table } from 'react-bootstrap'
-import RepoItem from '../RepoItem/'
-import { orderBy } from 'lodash'
+import RepoItem from '../RepoItem'
+import { repositoriesData } from '../../redux/selectors'
 
 const ReposList = () => {
-  const repositories  = useSelector(state => state.repositories.data)
+  const repositories  = useSelector(repositoriesData)
   
   return(
     <Table>
@@ -17,7 +17,7 @@ const ReposList = () => {
         </tr>
       </thead>
       <tbody>
-        {orderBy(Object.values(repositories), ['stargazers_count'], ['desc']).map(repo =>
+        {repositories.map(repo =>
           <RepoItem
             key={repo.id}
             id={repo.id}

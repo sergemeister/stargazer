@@ -58,6 +58,7 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-logic": "^3.0.2",
+    "reselect": "^4.0.0",
     "rxjs": "^6"
   },
   "scripts": {
@@ -121,7 +122,9 @@
     "setupFilesAfterEnv": [
       "<rootDir>/src/setupTests.js"
     ],
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
     "testEnvironment": "jest-environment-jsdom-fourteen",
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",

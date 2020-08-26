@@ -2,6 +2,7 @@ import React, { useEffect, Fragment } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
 import { getRepositoryLanguages } from '../../actions/'
+import { repositoryData } from '../../redux/selectors'
 import { Button } from 'react-bootstrap'
 import './component.scss'
 
@@ -9,7 +10,7 @@ const DetailsPage = () => {
   const { id } = useParams()
   const history = useHistory()
   const dispatch = useDispatch()
-  const repository = useSelector(state => state.repositories.data[id])
+  const repository = useSelector(repositoryData(id))
 
   useEffect(() => {
     dispatch(getRepositoryLanguages(id))

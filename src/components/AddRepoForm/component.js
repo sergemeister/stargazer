@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { getRepository } from '../../actions'
-import { Form, InputGroup, FormControl, Button } from 'react-bootstrap';
+import { Form, InputGroup, FormControl, Button } from 'react-bootstrap'
+import { repositoryError } from '../../redux/selectors'
 import './component.scss'
 
 const AddRepoForm = () => {
   const [repoName, setRepoName] = useState('')
-  const error = useSelector(state => state.repositories.error)
+  const error = useSelector(repositoryError)
   const dispatch = useDispatch()
 
   const handleSubmit = (e) => {
