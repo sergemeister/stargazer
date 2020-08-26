@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { getRepository } from '../../actions'
 import { Form, InputGroup, FormControl, Button } from 'react-bootstrap'
@@ -10,10 +10,13 @@ const AddRepoForm = () => {
   const error = useSelector(repositoryError)
   const dispatch = useDispatch()
 
+  useEffect(() => {
+    if (!error) setRepoName('')
+  }, [error])
+
   const handleSubmit = (e) => {
     e.preventDefault()
     dispatch(getRepository(repoName))
-    setRepoName('')
   }
 
   const handleChange = (e) => {
@@ -41,7 +44,9 @@ const AddRepoForm = () => {
           </Button>
         </InputGroup.Append>
       </InputGroup> 
-      {error}
+      <div className="text-danger">
+        {error}
+      </div>
     </Form>
   )
 }
