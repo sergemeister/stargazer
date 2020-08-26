@@ -1,7 +1,7 @@
 import React from 'react'
 import AddRepoForm from '../AddRepoForm'
 import ReposList from '../ReposList'
-import './HomePage.scss'
+import './component.scss'
 
 const HomePage = () => {
   return(

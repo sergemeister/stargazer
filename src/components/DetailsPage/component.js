@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
 import { getRepositoryLanguages } from '../../actions/'
 import { Button } from 'react-bootstrap'
-import './DetailsPage.scss'
+import './component.scss'
 
 const DetailsPage = () => {
   const { id } = useParams()

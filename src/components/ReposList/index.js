@@ -1,3 +1,3 @@
-import ReposList from './ReposList'
+import ReposList from './component'
 
 export default ReposList

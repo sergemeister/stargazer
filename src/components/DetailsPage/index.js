@@ -1,3 +1,3 @@
-import DetailsPage from './DetailsPage'
+import DetailsPage from './component'
 
 export default DetailsPage

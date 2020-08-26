@@ -2,7 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import { mount, shallow } from 'enzyme'
-import RepoItem from '../RepoItem'
+import RepoItem from '../component'
 import { removeRepository } from '../../../actions'
 
 const mockStore = configureStore([])

@@ -1,3 +1,3 @@
-import RepoItem from './RepoItem'
+import RepoItem from './component'
 
 export default RepoItem

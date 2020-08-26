@@ -1,3 +1,3 @@
-import  AddRepoForm from './AddRepoForm'
+import  AddRepoForm from './component'
 
 export default AddRepoForm

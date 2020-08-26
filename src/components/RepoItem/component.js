@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { removeRepository } from '../../actions'
 import { useHistory } from 'react-router-dom'
-import './RepoItem.scss'
+import './component.scss'
 
 const RepoItem = ({id, name, starsCount}) => {
   let history = useHistory()
