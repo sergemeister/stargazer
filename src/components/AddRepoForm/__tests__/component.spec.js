@@ -39,6 +39,19 @@ describe('AddRepoForm', () => {
     expect(dispatch).toHaveBeenCalledWith(getRepository('facebook/react'))
   })
 
+  it('should show an error', () => {
+    const dispatch = jest.fn()
+    useDispatch.mockImplementation(() => dispatch)
+
+    component = mount(
+      <AddRepoForm />
+    )
+    component.find('input').simulate('change', { target: { value: 'ffdsf/rfdfde' } })
+    component.find('form.add-repo-form').simulate('submit')
+    repositoryError.mockReturnValue('Repository not found')
+    expect(component.find('.text-danger').text()).toEqual('Repository not found')
+  })
+
   afterEach(() => {
     component.unmount()
   })
