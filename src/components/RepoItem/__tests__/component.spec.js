@@ -1,68 +1,55 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import configureStore from 'redux-mock-store'
+import { useDispatch } from 'react-redux'
 import { mount, shallow } from 'enzyme'
 import RepoItem from '../component'
 import { removeRepository } from '../../../actions'
-
-const mockStore = configureStore([])
 
 jest.mock('react-router-dom', () => ({
   useHistory: () => ({
     push: jest.fn(),
   })
 }))
+
+jest.mock('react-redux', () => ({
+  useDispatch: jest.fn()
+}))
  
 describe('RepoItem', () => {
-  let store;
- 
-  beforeEach(() => {
-    store = mockStore({
-      repositories: {
-        data: {
-          "123": {
-            id: 123,
-            full_name: "facebook/react",
-            stargazers_count: 12345,
-            subscribers_count: 6678,
-            forks_count: 30270,
-            clone_url: "https://github.com/facebook/react.git",
-            languages_url: "https://api.github.com/repos/facebook/react/languages"
-          }
-        }
-      },
-    })
-
-    store.dispatch = jest.fn()
-  })
- 
+  let component;
+  const repository = {
+    id: 123,
+    full_name: "facebook/react",
+    stargazers_count: 12345,
+    subscribers_count: 6678,
+    forks_count: 30270,
+    clone_url: "https://github.com/facebook/react.git",
+    languages_url: "https://api.github.com/repos/facebook/react/languages"
+  }
+  
   it('should render correctly', () => {
-    const component = mount(
-      <Provider store={store}>
-        <table>
-          <tbody>
-            <RepoItem id={123} name="facebook/react" starsCount={12345}/>
-          </tbody>
-        </table>
-      </Provider>
+    component = shallow(
+      <RepoItem {...repository} />
     )
     expect(component).toMatchSnapshot()
-    component.unmount()
   });
  
   it('should dispatch an action on button click', () => {
-    const component = mount(
-      <Provider store={store}>
-        <table>
-          <tbody>
-            <RepoItem id={123} name="facebook/react" starsCount={12345}/>
-          </tbody>
-        </table>
-      </Provider>
+    const dispatch = jest.fn()
+    useDispatch.mockImplementation(() => dispatch)
+
+    component = mount(
+      <table>
+        <tbody>
+          <RepoItem {...repository} />
+        </tbody>
+      </table>
     )
     component.find('button.close').simulate('click')
-    expect(store.dispatch).toHaveBeenCalledTimes(1)
-    expect(store.dispatch).toHaveBeenCalledWith(removeRepository(123))
-    component.unmount()
+    expect(dispatch).toHaveBeenCalledTimes(1)
+    expect(dispatch).toHaveBeenCalledWith(removeRepository(123))
   });
+
+  afterEach(() => {
+    component.unmount()
+  })
 });

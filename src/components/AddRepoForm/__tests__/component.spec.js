@@ -1,46 +1,45 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import configureStore from 'redux-mock-store'
-import { mount } from 'enzyme'
+import { useDispatch } from 'react-redux'
+import { shallow, mount } from 'enzyme'
 import AddRepoForm from '../component'
 import { getRepository } from '../../../actions'
+import { repositoryError } from '../../../redux/selectors'
 
-const mockStore = configureStore([])
- 
+jest.mock('../../../redux/selectors', () => ({
+  repositoryError: jest.fn()
+}))
+
+jest.mock('react-redux', () => ({
+  useSelector: jest.fn(fn => fn()),
+  useDispatch: jest.fn()
+}))
+
 describe('AddRepoForm', () => {
-  let store;
- 
-  beforeEach(() => {
-    store = mockStore({
-      repositories: {
-        data: {},
-        error: "Repository not found"
-      }
-    })
-
-    store.dispatch = jest.fn()
-  })
+  let component;
  
   it('should render correctly', () => {
-    const component = mount(
-      <Provider store={store}>
-        <AddRepoForm />
-      </Provider>
+    repositoryError.mockReturnValue('Repository not found')
+
+    component = shallow(
+      <AddRepoForm />
     )
     expect(component).toMatchSnapshot()
-    component.unmount()
   });
 
   it('should dispatch an action on button click', () => {
-    const component = mount(
-      <Provider store={store}>
-        <AddRepoForm />
-      </Provider>
+    const dispatch = jest.fn()
+    useDispatch.mockImplementation(() => dispatch) 
+
+    component = mount(
+      <AddRepoForm />
     )
     component.find('input').simulate('change', { target: { value: 'facebook/react' } })
     component.find('form.add-repo-form').simulate('submit')
-    expect(store.dispatch).toHaveBeenCalledTimes(1)
-    expect(store.dispatch).toHaveBeenCalledWith(getRepository('facebook/react'))
+    expect(dispatch).toHaveBeenCalledTimes(1)
+    expect(dispatch).toHaveBeenCalledWith(getRepository('facebook/react'))
+  })
+
+  afterEach(() => {
     component.unmount()
-  });
+  })
 });

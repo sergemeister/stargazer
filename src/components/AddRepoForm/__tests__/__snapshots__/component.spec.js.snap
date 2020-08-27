@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddRepoForm should render correctly 1`] = `
+<Form
+  className="add-repo-form"
+  inline={false}
+  onSubmit={[Function]}
+>
+  <InputGroup
+    className="mb-3"
+  >
+    <FormControl
+      onChange={[Function]}
+      pattern="^([a-zA-z0-9_.-]+\\\\/)([a-zA-z0-9_.-]+)$"
+      placeholder="Enter repository name, eg. facebook/react"
+      required={true}
+      title="Should be formatted as {owner}/{repo}, eg. facebook/react"
+      value=""
+    />
+    <InputGroupAppend>
+      <Button
+        active={false}
+        disabled={false}
+        type="submit"
+        variant="info"
+      >
+        Add
+      </Button>
+    </InputGroupAppend>
+  </InputGroup>
+  <div
+    className="text-danger"
+  >
+    Repository not found
+  </div>
+</Form>
+`;
